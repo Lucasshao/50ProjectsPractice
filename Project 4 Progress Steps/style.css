@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/* to define custom properties basically just variables 可以多次引用 */
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f7fb;
+  font-family: 'muli' sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex; /*wraps around here not the buttons */
+  justify-content: space-between; /*分开一点 */
+  position: relative;/*so we can position other things inside of absolute*/
+  margin-bottom: 30px; /*跟下面按钮的距离*/
+  max-width: 100%; /*之间的距离*/
+  width: 350px;/*不懂之间的区别*/
+}
+
+.progress {
+  background-color: #3498db;
+  position: absolute; 
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /*确保在中间*/
+  height: 4px;
+  width: 0%;
+  z-index: -1;/*make sure behind the number*/
+  transition: 0.4s ease;
+}
+
+.progress-container::before{ /*这个是那个灰线，before 是一个selector*/
+  content: ""; /*如果有 before或者after，要加这一行才能看见*/
+  background-color: var(--line-border-empty);
+  position: absolute; 
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%); /*确保在中间*/
+  height: 4px;
+  width: 100%; /*represent the empty line*/
+  z-index: -1;/*make sure behind the number*/
+  /*no need transition because it not going to do anything just a line behind it*/
+}
+
+.circle {
+  background-color: var(--line-border-empty);
+  color: #999;
+  border-radius: 50%; /*圆形*/
+  height: 30px;
+  width: 30px;
+  display: flex; /*确保数字在中间*/
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--line-border-empty); /*边框*/
+  transition: 0.4s ease; /*慢一点显示*/
+}
+
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer; /*鼠标变小手指*/
+  font-family: inherit; /*字体*/
+  padding: 8px 30px; /*留白周围*/
+  margin: 5px; /*间距大点*/
+  font-size: 14px;
+}
+
+.btn:active { /*这里直接 “:active”*/
+  transform: scale(0.98); /*down a little 鼠标点击按钮会有变小一丢丢的效果*/
+}
+
+.btn:focus {
+  outline: 0; /*get rid of the outline ??*/
+}
+
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed; /*不让点了*/
+}

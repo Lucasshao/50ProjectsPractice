@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Progress Steps</title>
+</head>
+<body>
+  <div class="container">
+    <!-- 一开始就创建一个container around everything，里面有一个progress的container，再下一层有class和id都给process, for styling and creating the line-->
+    <div class="progress-container">
+      <div class="progress" id="progress"></div>
+      <!-- 再之下，class of circle，太复杂了记住就好了 -->
+        <div class="circle active">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+        <div class="circle">4</div>
+    </div>
+    <!-- 在 progress-container 之外，创建button， 用“.button.btn#prev (#可以代表ID快捷键)-->
+    <button class="btn" id="prev" disabled>Prev</button>
+    <button class="btn" id="next">Next</button>
+    <!-- disabled by default because start at 1 and we can't go previous if at 1。限制它退回去-->
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
