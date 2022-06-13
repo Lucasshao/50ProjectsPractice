@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- cdn, open & close button -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+  <title>Rotating Navigation</title>
+</head>
+<body>
+  <div class="container"> <!--wraps everything-->
+    <div class="circle-container"> <!--wraps the circle, circle up in the corner with the buttons-->
+      <div class="circle">
+        <button id="close">
+          <i class="fas fa-times"></i><!--icon from font awesome (i.fas.fa-times)-->
+        </button>
+        <button id="open">
+          <i class="fas fa-bars"></i><!--different icon-->
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1>Amazing Article</h1> <!--正文-->
+      <small>Florin Pop</small> <!--author-->
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus accusantium voluptatum tempore maxime doloremque amet dolores mollitia nihil recusandae fugit aspernatur velit vel repellendus sit hic officia quia minima aliquid voluptas, et incidunt rerum tempora odit. Minima ratione, error quis consequatur neque modi, corrupti perspiciatis debitis alias quod mollitia repudiandae nulla. Totam laborum voluptatibus quasi magni iusto nisi, facilis quo eaque, nobis deserunt, laboriosam repellat voluptatem recusandae veniam? Deserunt et rem eaque neque dolor aperiam ratione officia quis provident debitis amet molestiae, laboriosam ipsa voluptas! Tenetur voluptatum iusto officiis, debitis, ipsa, rerum laudantium dolores eligendi quod unde atque necessitatibus at?</p> <!--lorem100 (dummy text)-->
+
+      <h3>My Dog</h3>
+      <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" alt="doggy" />
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero deleniti rerum quo, incidunt vel consequatur culpa ullam. Magnam facere earum unde harum. Ea culpa veritatis magnam at aliquid. Perferendis totam placeat molestias illo laudantium? Minus id minima doloribus dolorum fugit deserunt qui vero voluptas, ut quia cum amet temporibus veniam ad ea ab perspiciatis, enim accusamus asperiores explicabo provident. Voluptates sint, neque fuga cum illum, tempore autem maxime similique laborum odio, magnam esse. Aperiam?</p>  <!--lorem75-->
+    </div>
+  </div>
+
+  <nav><!--html5 nav tag-->
+    <ul> <!--三个系统自带标签+文字-->
+      <li><i class="fas fa-home"></i>Home</li> 
+      <li><i class="fas fa-user-alt"></i>About</li>
+      <li><i class="fas fa-envelope"></i>Contact</li>
+    </ul>
+  </nav>
+  <script src="./script.js"></script>
+</body>
+</html>

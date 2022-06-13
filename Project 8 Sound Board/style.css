@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: steelblue;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.container a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+
+
+
+.btn { 
+  cursor: pointer;
+  display: inline-block; /*???*/
+  width: 100%;
+  background: lightblue;
+  padding: 15px; /*撑起来*/
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.btn:focus {/*???*/
+  outline: 0;
+}
+
+.btn:active{ /*点的时候会变小一点*/
+  transform: scale(0.98);
+}
+
+
+
+.text {
+  margin-top: 30px;
+}
+
+
+.form-control {
+  position: relative; /*label to be position absolute*/
+  margin: 20px 0 40px; /*top and bottom, left, right*/
+  width: 300px;
+}
+
+.form-control input { /*输入框*/
+  background-color: transparent; /*无颜色*/
+  border: 0; /*无边框*/
+  border-bottom: 2px #fff solid; /*下边框*/
+  display: block; /*输入框和lable各自一行*/
+  width: 100%; /*all the width across*/
+  padding: 15px 0; /*撑开*/
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus, .form-control input:valid { /*输入时光标一直在，输入时没有边框*/
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.form-control label {
+  position: absolute;
+  top: 15px;
+  left: 0; /*这两行会把输入的东西挡住，但是加入了js之后会有动画效果*/
+}
+
+.form-control label span { /*创建js之后回来*/
+  display: inline-block; /*default*/
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.22); /*defines a curve from a to b， p1p2p3p4, bounce effect, 相当于ease-in 那种transition功能*/
+}
+
+.form-control input:focus + label span, 
+/* when we click inside we want the direct label span & validation??????????????*/
+.form-control input:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px); /*move up*/
+}

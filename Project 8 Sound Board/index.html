@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"/>
+  <title>Form Input Wave</title>
+
+<!-- 这里传统的Login界面！经典！ -->
+</head>
+<body>
+  <div class="container">   <!-- 括住所有 -->
+    <h1>Please Login</h1> <!--标题-->
+    <form>   <!-- 加一个form -->
+      <div class="form-control"> <!--记住这个class-->
+        <input type="text" required>  <!--必须填-->
+        <label>Email</label> <!--不明白为什么用label-->
+      </div>
+      
+      <div class="form-control">
+        <input type="password" required>  <!--必须填，跟SQL那里比较像-->
+        <label>Password</label>
+      </div>
+
+      <button class="btn">Login</button> <!--login 按钮-->
+
+      <p class="text">Don't have an account? <a href="#">Register</a> </p> <!--直接两个接着写，一个p，一个 a-->
+    </form>
+
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
+
+

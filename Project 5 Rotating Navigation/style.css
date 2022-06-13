@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222; /*container 之后的颜色（body的），因为container旋转起来能看到*/
+  overflow-x: hidden; /*only hides the scroll bar on the x-axis*/
+  margin: 0;
+}
+
+.container {
+  background-color: #fafafa;
+  transform-origin: top left;/*rotate from the top left position，从左上角的意思*/
+  transition: transform 0.5s linear; /*动态效果*/
+  width: 100vw;
+  min-height: 100vh; /*能够设置元素的最小高度。这样能够防止 height 属性的应用值小于 min-height 的值*/
+  padding: 50px; /*周围留白*/
+}
+
+.container.show-nav { /*.container.show-nav 可以旋转container,在html里面把container改成show-nav可以测试看见*/ 
+  transform: rotate(-20deg);
+}
+
+.circle-container { /*直接circle-container*/
+  position: fixed;
+  top: -100px ; /*helf circle on the edge of the page*/
+  left: -100px;
+}
+
+.circle {
+  background-color: #ff7979;
+  height: 200px; /*-100 的 200，就是4分之一的圆露出来*/
+  width: 200px;
+  border-radius: 50%;
+  position: relative; /*this relative, so can position the buttons inside absolute*/
+  transition: trasnform 0.5s linear; /*旋转动画效果*/
+}
+
+.container.show-nav .circle { /*这里也没懂为什么这样写，好像是让圆转更多？*/
+  transform: rotate(-70deg);
+}
+
+.circle button { /*不用点*/
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.circle button:focus { /*为什么这样写*/
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%; /*open button going to see initially*/
+}
+
+.circle button#close {
+  top: 60%; /*relative to the circle! 跟上一层relative!老师讲过这里！！*/
+  transform: rotate(90deg); /*这里太厉害了，90度旋转出来就能看见，不然看不见，但是其实都存在*/
+  transform-origin: top left;
+}
+
+.container.show-nav + nav li { /*没懂*/
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+
+
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0%;
+  z-index: 100;
+}
+
+nav ul { /*不是class，前面不用带 . */
+  list-style-type: none; /*get rid of those bullet points*/
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0; /*top and buttom*/
+  transform: translateX(-100%); /*让它进来的长度*/
+  transition: transform 0.4s ease-in; /*直接加“transform”这个property*/
+  cursor: pointer; /*自己加的*/
+}
+
+nav ul li i {
+  font-size: 20px; /*icon bigger*/
+  margin-right: 10px; /*put space between icon & 文字*/
+}
+
+nav ul li + li {
+  margin-left: 15px; /*li after the initial li are going to stick out 15 pixels*/
+  transform: translateX(-150%); /*让他们从更里面出来，设置动画效果而不是设置位置，因为最终位置是固定的，只能反推*/
+}
+
+nav ul li + li + li {
+  margin-left: 30px; /*stick out 30 pixels, 阶梯状，学到了*/
+  transform: translateX(-200%); 
+}
+
+
+
+
+.content img {
+  max-width: 100%; /*图片大小*/
+}
+
+.content {
+  max-width: 1000px; /*就算拉最大也是1000px清晰不会再大*/
+  margin: 50px auto; /*位置*/
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}

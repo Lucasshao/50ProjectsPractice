@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #efedd6;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow-x: hidden; /*不要左右滑动bar*/
+}
+
+h1 {
+  margin: 10px;
+}
+
+.box { /*盒子的外形*/
+  background-color: steelblue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3); /*4px for the offsets, 5px for the blur, rgba for the color, 0.3 for the alpha value*/
+  transform: translateX(400%); /*盒子的移动，set to 400% or it will show on wide screen*/ 
+  transition: transform 0.4s ease; /*慢慢进来*/
+}
+
+.box:nth-of-type(even) {/*a pseudo selector，所有双数的从另一侧进来，很巧妙*/
+  transform: translateX(-400%);
+} 
+
+.box.show { /*a class, 在html class box 后面加 show，就会有不同形态，这里的show 是起始，一开始能看见的，不加的就是看不见的*/
+  transform: translateX(0);
+}
+
+.box h2 {
+  font-size: 45px;
+}

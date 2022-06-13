@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(90deg, #7d5fff, #7158e2); /*为什么放两个颜色?*/
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center; /*no need flex-direction as a column*/
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.search {
+  position: relative; /*so we can position things inside of it absolute*/
+  height: 50px;
+}
+
+.search .input { /*有class就有一点 . */
+  background-color: #fff;
+  border: 0;
+  font-size: 18px;
+  padding: 15px;
+  height: 50px; /*一开始会很小，点了后变大 */
+  width: 50px; /*一开始会很小，点了后变大 */
+  transition: width 0.3s ease;
+  /* border-top-left-radius: 15%;
+  border-bottom-left-radius: 15%; */
+}
+
+.btn {
+  background-color: #fff;
+  border: 0;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform 0.3s ease; /* input gets wider and the button gets pushed over */
+  /* border-top-right-radius: 30%;
+  border-bottom-right-radius: 30%; */
+}
+
+.btn:focus,  /*一个形态？？让光标停留在那里。可以记住很多地方能用到*/
+.input:focus {
+  outline: none;
+}
+
+.search.active .input { 
+  width: 200px;/* from 50 to 200 */
+}
+
+.search.active .btn {
+  transform: translateX(198px); /* button to move x-axis over */
+}
