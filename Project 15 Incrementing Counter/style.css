@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #8e44ad;
+  color: #fff;
+  font-family: 'Roboto Mono', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center; /*flex-direction:column 取消就会变成打横，下面@media那里对应*/
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.counter-container {
+  display: flex;
+  flex-direction: column;/* stacked on top of each other*/
+  justify-content: center;
+  text-align: center; /*文字居中*/
+  margin: 30px 50px;
+}
+
+.counter {
+  font-size: 60px;
+  margin-top: 10px;
+}
+
+@media (max-width: 580px) {
+  body {
+    flex-direction: column;
+  } /*if anything under 580px, body flex direction to be a column instead of a row*/
+}

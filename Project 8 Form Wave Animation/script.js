@@ -7,16 +7,11 @@
     <span style="transition-delay: 200ms">l</span>
   </label> --> */
 
-const labels = document.querySelectorAll('.form-control label') /*node list of all label*/
+  const labels = document.querySelectorAll('.form-control label') /*node list of all label*/
 
-labels.forEach(label => {
-  label.innerHTML = label.innerText/*each letter*/
-    .split('') /*empty string in here it splits the letters into an array*/
-    .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)  /*turn it into an array of the letters with a span around it with a trasition delay*/
-    .join('') /*turning it back into a string*/
-}) /*test wrap in span*/
-
-
-
-
-
+  labels.forEach(label => {
+    label.innerHTML = label.innerText/*each letter*/
+      .split('') /*empty string in here it splits the letters into an array*/
+      .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)  /*turn it into an array of the letters with a span around it with a trasition delay*/
+      .join('') /*turning it back into a string*/
+  }) /*test wrap in span*/

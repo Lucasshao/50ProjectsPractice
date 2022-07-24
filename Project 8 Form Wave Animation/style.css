@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: steelblue;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container { /* container的样子 */
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 5px;
+}
+
+.container h1 { /* container里面的字的样子 */
+  text-align: center;
+  margin-top: 30px;
+}
+
+.container a { /* container里面的link的样子 */
+  text-decoration: none;
+  color: lightblue;
+}
+
+.btn { /* Login 按钮的效果*/
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background: lightblue;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.btn:focus{ 
+  outline: 0;
+}
+
+.btn:active { /* 按下时的效果 */
+  transform: scale(0.98);
+}
+
+.text {
+  margin-top: 30px;
+}
+
+.form-control {
+  position: relative; /* as want label to be position absolute */
+  margin: 20px 0 40px; /* top bottom left & right*/
+  width: 300px;
+}
+
+.form-control input { /* 输入框的样式 */
+  background-color: transparent; /* 透明 */
+  border: 0; /* 无边框 */
+  border-bottom: 2px #fff solid; /* 只有底部的边框 */
+  display: block; /* on its own line, so instead of inline, display block better*/
+  width: 100%; /* all the way across */
+  padding: 15px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus, 
+.form-control input:valid {
+  outline: 0;/* if submit and invalid, there is border. so target form control input valid 其实还是不是很懂  */
+  border-bottom-color: lightblue;
+}
+
+.form-control label { /* form control label */
+  position: absolute;
+  top: 15px;
+  left: 0%;
+}
+
+.form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);/* cubic-bezier define a curve (bounce effect), use as transition effect with a variable speed from start to end*/
+}
+
+.form-control input:focus /* focus mean when we click inside, we want the direct label span */ + label span,
+.form-control input:valid + label span {
+  color: lightblue;
+  transform: translateY(-30px); /* negative to move up */
+}

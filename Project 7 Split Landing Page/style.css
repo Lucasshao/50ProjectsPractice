@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  /* 设置成 var 方便调用 */
+  --left-bg-color: rgba(87, 84, 236, 0.7);
+  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --left-btn-hover-color: rgba(87, 84, 236, 1);
+  --right-btn-hover-color: rgba(28, 122, 28, 1);
+  --hover-width: 75%;
+  --other-width: 25%;
+  --speed: 1000ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+h1 {
+  /* 文字 */
+  font-size: 4rem;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap; /* 就算变小也不卷 */
+}
+
+.btn {
+  /* 按钮的样子 */
+  position: absolute;
+  display: flex; /* 让字buy now在中间 */
+  align-items: center; /* 让字buy now在中间 */
+  justify-content: center; /* 让字buy now在中间 */
+  left: 50%; /* 在中间 */
+  top: 40%; /* 在中间 */
+  transform: translateX(-50%); /* 在中间的中间 */
+  text-decoration: none; /* 没下划线 */
+  color: #fff;
+  border: #fff solid 0.2rem; /* border */
+  font-size: 1rem;
+  font-weight: bold; /* 变粗 */
+  text-transform: uppercase; /* 大写 */
+  width: 15rem;
+  padding: 1.5rem;
+}
+
+.split.left .btn:hover {
+  /* 鼠标放上去之后的颜色 */
+  background-color: var(
+    --left-btn-hover-color
+  ); /* 背景 , 我醉了，var后面不能加空格跟着括号*/
+  border-color: var(
+    --left-btn-hover-color
+  ); /* 让边框也同样颜色（好像没边框了的效果 */
+}
+
+.split.right .btn:hover {
+  background-color: var(--right-btn-hover-color);
+  border-color: var(--right-btn-hover-color);
+}
+
+.container {
+  /*first do, 一开始上面白条是 margin on the heading*/
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #333;
+}
+
+.split {
+  /*both sides have a class of split*/
+  position: absolute; /* within the container */
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.split.left {
+  left: 0; /* 从左开始 */
+  background: url("ps.jpg"); /* 导入图片，一开始overlay，后面改*/
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.left::before {
+  /* before pseudo selector */
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--left-bg-color);
+}
+
+.split.right {
+  right: 0;
+  background: url("xbox.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.split.right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--right-bg-color);
+}
+
+.split.right,
+.split.left,
+.split.right::before,
+.split.left::before {
+  /* a smooth CSS transition, add all pseudo selector */
+  transition: all var(--speed) ease-in-out;
+}
+/* 这两个一套，当左边active， 右边变小。 下面两个相反 */
+.hover-left .left {
+  width: var(--hover-width); /* 用变量方便引用 */
+}
+
+.hover-left .right {
+  width: var(--other-width);
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    /* smaller screen */
+    font-size: 2rem;
+    top: 30%;
+  }
+
+  .btn {
+    padding: 1.2rem;
+    width: 12rem;
+  }
+}
