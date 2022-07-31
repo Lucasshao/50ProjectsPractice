@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+    --primary-color: #22254b;
+    --secondary-color:#373b69;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+header {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--secondary-color);
+}
+
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    color: #fff;
+}
+
+.search::placeholder {
+    color: #7378c5;
+}
+
+.search:focus { /*这个记一下*/
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+main {
+    display: flex; /*平铺*/
+    flex-wrap: wrap; /*能卷起来*/
+}
+
+.movie {
+    width: 300px;
+    margin: 1rem; /*把他们分开*/
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);/*一点影子*/
+    position: relative; /*this relative so can position everything inside absolute*/
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.movie img{ 
+    width: 100%;
+}
+
+.movie-info {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*space between 电影题目 和 评分*/
+    padding: 0.5rem 1rem 1rem; /*题目周围的padding */
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3 { /*margin top off of the heading*/
+    margin-top: 0;
+}
+
+.movie-info span {/*base class of rating*/
+    background-color: var(--primary-color);
+    padding: .25rem .5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.movie-info span.green{
+    color: lightgreen;
+}
+
+.movie-info span.orange{
+    color: orange;
+}
+
+.movie-info span.red{
+    color: red;
+}
+
+.overview {/*103-109很经典的功能*/
+    background-color: #fff;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101% );/*don't show first, when we hover, it comes up, it transitions up */
+    transition: transform 0.3s ease-in;/*transition the transform property*/
+}
+
+.movie:hover .overview {
+    transform: translateY(0);/*让其回到原来位置*/
+}
