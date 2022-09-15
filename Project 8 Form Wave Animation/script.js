@@ -7,6 +7,7 @@
     <span style="transition-delay: 200ms">l</span>
   </label> --> */
 
+  
   const labels = document.querySelectorAll('.form-control label') /*node list of all label*/
 
   labels.forEach(label => {
